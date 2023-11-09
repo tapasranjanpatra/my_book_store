@@ -1,0 +1,95 @@
+/* Global styles */
+:root {
+    --primary-color: #F2A1A1;
+    --secondary-color: #1D1145;
+    --accent-color: #cf0997;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  
+  /* Heading */
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-align: center;
+  }
+  
+  /* Search box */
+  .searchBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .bookName {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .searchBtn {
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  
+  /* Card box */
+  .cardBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  /* Card */
+  .card {
+    width: 250px;
+    height: 350px;
+    margin: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--accent-color);
+    overflow: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-author {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  /* Unique CSS code */
+  .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px var(--accent-color);
+  }
+  
+  .card-image:hover {
+    opacity: 0.7;
+  }
+  

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        $(document).ready(function () {
+            $(".searchBtn").click(function () {
+                var bookName = $(".bookName").val();
+                console.log("Button clicked...");
+                findBooks(bookName);
+                console.log("Button clicked");
+            });
+    
+    
+            function findBooks(bookName) {
+                console.log("find books function called");
+                $.ajax({
+                    type: "GET",
+                    url: "https://www.googleapis.com/books/v1/volumes?q=" + bookName,
+                    success: function (response) {
+                        console.log(response);
+                        $(".cardBox").empty();
+    
+                        for (var i = 0; i < response.items.length; i++) {
+                            var book = response.items[i];
+    
+                            var card = $("<div>").addClass("card");
+    
+                            var title = $("<h3>").addClass("card-title").text(book.volumeInfo.title);
+                            card.append(title);
+    
+                            var author = $("<p>").addClass("card-author").text(book.volumeInfo.authors[0]);
+                            card.append(author);
+    
+                            var image = $("<img>").addClass("card-image").attr("src", book.volumeInfo.imageLinks.thumbnail);
+                            card.append(image);
+    
+                            var description = $("<p>").addClass("desc").text(book.volumeInfo.description);
+                            card.append(description);
+    
+                            $(".cardBox").append(card);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+
+        <center>
+            <h1 class="heading">MY BOOK STORE</h1>
+            <div class="searchBox">
+            
+            <input type="text" class="bookName" placeholder="Enter Book Name"> <img src="magnification-lens.png" class="searchBtn">
+        </div>
+        
+        </center>
+
+        <br>
+        <div class="cardBox">
+            
+        </div>
+    </div>
+</body>
+</html>
